@@ -1,0 +1,41 @@
+body {
+    background-image: url("../img/PencilOS_DesktopImg.png");
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.InLineBox{
+    background-color: rgba(205,133,63,0.25);
+    /*display: flex;*/
+    justify-content: center;
+    /*align-items: center;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left : 20px;
+    margin-right : 20px;
+    margin-top : 20px;
+    margin-bottom : 20px;
+}
+
+.padding{
+    padding-left : 20px;
+    padding-right : 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+header{
+    text-align: center;
+    margin: auto;
+}
+
+main{
+    text-align: center;
+    margin: auto;
+}
+
+footer{
+    text-align: center;
+    margin: auto;
+}
