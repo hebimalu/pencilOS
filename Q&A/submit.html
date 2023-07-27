@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        const qwname = urlParams.get('qname');
+        const qwtext = urlParams.get('qtext');
+        const qwsupplement = urlParams.get('qsupplement');
+        
+        const fs = require('fs');
+
+        // 書き込むデータを作成
+        const data = {
+            qname: qwname,
+            qtext: qwtext,
+            qsupplement: qwsupplement
+        };
+        
+        // JSONデータを文字列に変換
+        const jsonData = JSON.stringify(data);
+        
+        // ファイルに書き込み
+        fs.writeFile('anser.json', jsonData, (err) => {
+            if (err) {
+                console.error('ファイルの書き込みエラー:', err);
+            } else {
+                console.log('JSONファイルが正常に書き込まれました。');
+            }
+        });
+    </script>
+</body>
+</html>

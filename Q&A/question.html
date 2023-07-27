@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Form(質問フォーム)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Question Form(質問フォーム)</h1>
+        <form action="./submit.html" method="post">
+            <label for="name">Name(名前):</label>
+            <input type="text" id="qname" name="qname" required>
+
+            <label for="question">Contents of question(質問内容):</label>
+            <textarea id="qtext" name="qtext" rows="4" required></textarea>
+
+            <label for="question">Supplement(補足):</label>
+            <textarea id="qsupplement" name="qsupplement" rows="4" required></textarea>
+
+            <button type="submit">Submit(送信)</button>
+        </form>
+    </div>
+</body>
+</html>
