@@ -14,31 +14,43 @@
         const urlParams = new URLSearchParams(queryString);
 
         const qwname = urlParams.get('qname');
+        const qwmail = urlParams.get('qmail');
         const qwtitle = urlParams.get('qtitle')
         const qwtext = urlParams.get('qtext');
         const qwsupplement = urlParams.get('qsupplement');
-        
-        const fs = require('fs');
 
-        // 書き込むデータを作成
-        const data = {
-            qname: qwname,
-            qtitle: qwtitle,
-            qtext: qwtext,
-            qsupplement: qwsupplement
-        };
+        const jsonFilePath = 'anser.json';
         
-        // JSONデータを文字列に変換
-        const jsonData = JSON.stringify(data);
-        
-        // ファイルに書き込み
-        fs.writeFile('anser.json', jsonData, (err) => {
-            if (err) {
-                console.error('ファイルの書き込みエラー:', err);
-            } else {
-                console.log('JSONファイルが正常に書き込まれました。');
-            }
-        });
+        // JSONデータを保存
+        function saveJSONData() {
+            const newData = {
+                qname: qwname,
+                qmail: qwmail,
+                qtitle: qwtitle,
+                qtext: qwtext,
+                qsupplement: qwsupplement
+            };
+
+            // JSONデータをファイルに保存
+            fetch(jsonFilePath, {
+                method: 'PUT', // または 'POST'
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newData)
+            })
+            .then(response => response.json())
+            .then(jsonData => {
+                console.log('JSONデータが保存されました:', jsonData);
+                displayJSONData(jsonData);
+            })
+            .catch(error => {
+                console.error('JSONデータの保存エラー:', error);
+            });
+        }
+
+        // JSONデータを保存
+        saveJSONData();
     </script>
 </body>
 </html>
